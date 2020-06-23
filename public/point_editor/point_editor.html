@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pointeditor GeoSoftware1 Assignment 5</title>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="public/src/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"/>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+
+</head>
+<body>
+
+<div class="a" align="center">
+    assignment: 05<br>
+    course: Geosoftware I SoSe 2020 <br>
+    authors: Maximilian Busch <br> <br>
+
+    Pointeditor<hr>
+    <a href="/">Back to mainpage</a> <br>
+
+    address search: <br>
+    <input id="addressSearch"></input>, Münster
+    <button class="button" type="button" onclick="searchAddress2()">search address</button>
+    <br><br>
+
+    search item: <br>
+    <input id="idfield"></input>(insert id)
+    <button class="button" type="button" onclick="searchFile()">search</button>
+    <br><br>
+    
+
+    <br><br>
+     <br>
+    <textarea rows="3" cols="64" id="userPosition" ></textarea><br>
+    <button class="button" type="button" onclick="sendFile()">Send data</button>         
+    <button class="button" type="button" onclick="DocumentInterface.getLocation()">my geolocation</button>
+    <button class="button" type="button" onclick="updateFile()">update</button>
+    <button class="button" type="button" onclick="deleteFile()">delete</button>
+    <hr>
+    
+    <p>With this function a point can be drawn on the map and as result the corresponding GeoJson is displayed above.</p>
+    <div id="map" style="width: 600px; height: 400px; float: left;"></div>
+    <div id="data">
+
+    </div>
+</div>
+<script src="public/src/tokens_TEMPLATE.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="public/point_editor/point_editor.js"></script>
+</body>
+</html>
+
+
+
+
+

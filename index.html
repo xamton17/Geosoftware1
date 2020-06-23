@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>GeoSoftware1 Assignment 5</title>
+  <!--Was macht meta charset-->
+  <meta charset="UTF-8">
+  <!--Stylesheet für Seitenlayout-->
+  <link rel="stylesheet" type="text/css" href="public/src/style.css">
+  <!--Link für Leafletkarte-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
+
+</head>
+<body onload="onLoad()">
+  <!--Einlkaden der benötigten Scripts-->
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+  integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+  crossorigin=""></script>
+  <script src="public/src/pointcloud.js"></script>
+  <script src="public/src/point.js"></script>
+  
+  <div class="a" align="center">
+  <h1>GeoSoftware1 Assignment 5</h1>
+
+  <div>
+  	assignment: 05<br>
+  	course: Geosoftware I SoSe 2020 <br>
+  	authors: Maximilian Busch <br> <br>
+
+  	 <hr>
+    address search: <br>
+    <input id="addressSearch"></input>, Münster
+    <button class="button" type="button" onclick="searchAddress()">search address</button>
+    <a href= "editor">Link to LeafletDraw</a>
+    <br><br>
+    <textarea rows="3" cols="64" id="userPosition" ></textarea><br>
+    <button class="button" type="button" onclick="refresh()">refresh</button>
+    <button class="button" type="button" onclick="DocumentInterface.getLocation()">my geolocation</button>
+  </div>
+  <p>Here u can see ur saved Positions</p>
+  <table style="width:75%" align="center" id="favoriteTable">
+    <tbody>
+      <tr>
+        <th>ID</td>
+        <th>Coordinates</td>
+      </tr>
+    </tbody>
+    </table>
+  <br>
+  <div id="nextDepartures">
+    <p id="nextDeparturesHeader"></p>
+    <table style="width:100%" align="center" id="nextDeparturesTable">
+      <tr>
+        <td>line nr</td>
+        <td>Bus line</td>
+        <td>departure</td>
+      </tr>
+
+    </table>
+  </div>
+  <button class="button" type="button" onclick="showOnMap()">Show on Map</button>
+
+  <br>
+
+  <div id="mainMap"></div>
+
+  <br>
+
+  <table style="width:75%" align="center" id="resultTable">
+    <tr>
+      <th>Bus stop name</td>
+      <th>Coordinates</td>
+      <th>Distance (in meters)</td>
+      <th>Bearing</td>
+    </tr>
+  </table>
+
+  </div>
+  <br>
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="public/src/tokens_TEMPLATE.js"></script>
+  <script src="public/script.js"></script>
+</body>
+</html>
+
+  
