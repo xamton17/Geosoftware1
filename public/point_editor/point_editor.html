@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Pointeditor GeoSoftware1 Assignment 5</title>
+    <title>Leaflet Page</title>
     <meta charset="utf-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+     <!--bootstrap script-->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+     <!--icons-->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    
     <link rel="stylesheet" type="text/css" href="public/src/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"/>
 
@@ -20,14 +29,41 @@
 
 </head>
 <body>
+    <!--Navbar-->
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+      
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        <i class='fas fa-hamburger' style='font-size:36px'></i>
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="/">Main Page</a>
+        <a class="dropdown-item" href="editor">Pointeditor</a>
+        <a class="dropdown-item" href="impressum">Impressum</a>
+        
+        </div>
+      </li>
+      <li class="nav-item d-none d-sm-block">
+        <a class="nav-link" href="/">Main Page</a>
+      </li>
+      <li class="nav-item d-none d-sm-block">
+        <a class="nav-link" href="editor">Pointeditor</a>
+      </li>
+      <li class="nav-item d-none d-sm-block">
+        <a class="nav-link" href="impressum">Impressum</a>
+      </li>
+    
+    </ul>
+  </div>
+  </nav>
 
-<div class="a" align="center">
-    assignment: 05<br>
-    course: Geosoftware I SoSe 2020 <br>
-    authors: Maximilian Busch <br> <br>
+<div class="jumbotron text-center">
 
-    Pointeditor<hr>
-    <a href="/">Back to mainpage</a> <br>
+    <h2>Pointeditor</h2>
 
     address search: <br>
     <input id="addressSearch"></input>, Münster
@@ -50,13 +86,37 @@
     <hr>
     
     <p>With this function a point can be drawn on the map and as result the corresponding GeoJson is displayed above.</p>
-    <div id="map" style="width: 600px; height: 400px; float: left;"></div>
+    <div id="map" style="width: 600px; height: 400px; "></div>
     <div id="data">
 
     </div>
 </div>
+<br><br><br><br><br><br>
+
+<div class="jumbotron text-center">
+    <h3>Impressum</h3> 
+  </div>
+    
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <p>Maximilian Busch</p>
+        <p>Rudolf-Harbig-Weg 39</p>
+        <p>48149 Münster</p>
+      </div>
+      <div class="col-sm-4">
+        <p>m_busc15@uni-muenster.de</p>
+        <p>01623456789 </p>
+        <p>Bananas are crooked</p>
+      </div>
+      <div class="col-sm-4">
+        <p>Geosoftware SS 2020</p>
+        <p>Assignment 6</p>
+      </div>
+    </div>
+  </div>
 <script src="public/src/tokens_TEMPLATE.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script src="public/point_editor/point_editor.js"></script>
 </body>
 </html>

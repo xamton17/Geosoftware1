@@ -2,38 +2,74 @@
 <html lang="en">
 
 <head>
-  <title>GeoSoftware1 Assignment 5</title>
-  <!--Was macht meta charset-->
+  <title>Get Your Busstation </title>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <!--Ajax/jquery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <!--bootstrap script-->
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <!--Stylesheet für Seitenlayout-->
   <link rel="stylesheet" type="text/css" href="public/src/style.css">
+  <!--icons-->
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
   <!--Link für Leafletkarte-->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
   crossorigin=""/>
-
+  
 </head>
+
 <body onload="onLoad()">
-  <!--Einlkaden der benötigten Scripts-->
+  <!--Link für Leafletkarte-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
   crossorigin=""></script>
+  <!--Leaflet-heat-->
+  <script src="node_modules/leaflet.heat/dist/leaflet-heat.js"></script>
+
   <script src="public/src/pointcloud.js"></script>
   <script src="public/src/point.js"></script>
-  
-  <div class="a" align="center">
-  <h1>GeoSoftware1 Assignment 5</h1>
-
+  <!--Navbar-->
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">  
+    <ul class="navbar-nav">
+      <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        <i class='fas fa-hamburger' style='font-size:36px'></i>
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="/">Main Page</a>
+        <a class="dropdown-item" href="editor">Pointeditor</a>
+        <a class="dropdown-item" href="impressum">Impressum</a> 
+        </div>
+      </li>
+      <li class="nav-item d-none d-sm-block">
+        <a class="nav-link" href="/">Main Page</a>
+      </li>
+      <li class="nav-item d-none d-sm-block">
+        <a class="nav-link" href="editor">Pointeditor</a>
+      </li>
+      <li class="nav-item d-none d-sm-block">
+        <a class="nav-link" href="impressum">Impressum</a>
+      </li>
+    </ul>
+  </div>
+  </nav>
+  <div class="jumbotron text-center">
+  <h3>Get your Busstation</h3>
   <div>
-  	assignment: 05<br>
-  	course: Geosoftware I SoSe 2020 <br>
-  	authors: Maximilian Busch <br> <br>
-
   	 <hr>
-    address search: <br>
+    Address search: <br>
     <input id="addressSearch"></input>, Münster
     <button class="button" type="button" onclick="searchAddress()">search address</button>
-    <a href= "editor">Link to LeafletDraw</a>
     <br><br>
     <textarea rows="3" cols="64" id="userPosition" ></textarea><br>
     <button class="button" type="button" onclick="refresh()">refresh</button>
@@ -57,17 +93,11 @@
         <td>Bus line</td>
         <td>departure</td>
       </tr>
-
     </table>
   </div>
-  <button class="button" type="button" onclick="showOnMap()">Show on Map</button>
-
   <br>
-
   <div id="mainMap"></div>
-
   <br>
-
   <table style="width:75%" align="center" id="resultTable">
     <tr>
       <th>Bus stop name</td>
@@ -76,12 +106,31 @@
       <th>Bearing</td>
     </tr>
   </table>
-
   </div>
+
   <br>
-
+  
+  <div class="jumbotron text-center">
+    <h3>Impressum</h3> 
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <p>Maximilian Busch</p>
+        <p>Rudolf-Harbig-Weg 39</p>
+        <p>48149 Münster</p>
+      </div>
+      <div class="col-sm-4">
+        <p>m_busc15@uni-muenster.de</p>
+        <p>01623456789 </p>
+        <p>Bananas are crooked</p>
+      </div>
+      <div class="col-sm-4">
+        <p>Geosoftware SS 2020</p>
+        <p>Assignment 6</p>
+      </div>
+    </div>
+  </div>
   <script src="public/src/tokens_TEMPLATE.js"></script>
   <script src="public/script.js"></script>
 </body>

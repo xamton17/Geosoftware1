@@ -117,4 +117,5 @@ process.on("SIGINT", () => {
 });
 // Send point_editor to "/editor" 
 app.get('/editor', (req,res) => {res.sendFile(__dirname + '/public/point_editor/point_editor.html') })
-
+// Send impressum to "/impressum" 
+app.get('/impressum', (req,res) => {res.sendFile(__dirname + '/public/impressum/impressum.html') })

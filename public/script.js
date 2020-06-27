@@ -23,8 +23,6 @@ async function onLoad() {
   pointcloud = geoJSON.arrayToGeoJSON(pointcloud);
   calculateResults(point, pointcloud);
   busAPI.haltestellen();
-  
-  
 }
 //##############################################################################
 //## FUNCTIONS
@@ -119,14 +117,6 @@ function getRequest(query) {
    }
  }
 
- /**
-  * showOnMap
-  * @desc inserts marker for favorite points
-
-  */
-function showOnMap(){
-
-}
 /**
 * @function load
 * @desc called when tablerow is clicked
@@ -297,6 +287,7 @@ class BusAPI{
     pointcloud = response;
     calculateResults(point, pointcloud);
     mainMapInterface.addBusStops(pointcloud);
+    mainMapInterface.addHL();
   }
 
   /**
@@ -411,11 +402,8 @@ class MapInterface{
     this.busStopGroup = new L.LayerGroup().addTo(this.map);
     this.routesIndex = [];
     this.routesGroup = new L.LayerGroup().addTo(this.map);
-
     this.userPositionLayer = new L.LayerGroup().addTo(this.map);
-
     this.addIcons();
-
   }
 
   /**
@@ -428,7 +416,27 @@ class MapInterface{
       iconAnchor: [5,5]
     });
   }
-
+  /**
+   * @desc function that creates a HeatLayer
+   */
+   addHL(){
+    let heatArray = [];
+    var i = 0;
+    for ( let feature of pointcloud.features){
+        heatArray[i] = [feature.geometry.coordinates[1], 
+                       feature.geometry.coordinates[0]] 
+        i++;
+    }
+    var hlayer = L.layerGroup();
+    L.heatLayer(heatArray,{radius: 25}).addTo(hlayer);
+    var baseLayers = {};
+    var overlays = {
+      "Heatlayer": hlayer
+    };
+    L.control.layers(baseLayers, overlays).addTo(this.map);
+  }
+ 
+  
   /**
    * @desc clear Bus stops
    * @desc removes all markers from the map when called
@@ -883,3 +891,5 @@ const mainMapInterface = new MapInterface(
   }
 );
 const geocoder = new HereAPI();
+
+
